@@ -23,15 +23,17 @@ import {
   BrowserRouter as Router
 } from 'react-router-dom'
 
+import { RootState } from './redux'
+
 const App: React.FC = () => {
-  const accountSelector: any = useSelector((state: any) => state.account)
+  const accountSelector: any = useSelector((state: RootState) => state.account)
   const isLogin: boolean = accountSelector.isLogin
 
-  const singletonSelector: any = useSelector((state: any) => state.singleton)
+  const singletonSelector: any = useSelector((state: RootState) => state.singleton)
   const account: Account = singletonSelector.account
   const dispatch: any = useDispatch()
 
-  const messageSelector: any = useSelector((state: any) => state.message)
+  const messageSelector: any = useSelector((state: RootState) => state.message)
   const message: string = messageSelector.message
 
   useEffect(() => {
@@ -45,7 +47,7 @@ const App: React.FC = () => {
       <Router>
         <div id="wrapper">
           <div id="container-row">
-            <h1 id="header-logo">銀河ペット ver.1.0</h1>
+            <h1 id="header-logo">銀河ペット</h1>
             <div id="container-col">
               <header id="header">
                 <Nav />
